@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width">-->
+    <title>水印</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/watermark.js"></script>
+</head>
+<body>
+<div >
+    <canvas id="myCanvas" style="border-radius: 1px;"/>
+</div>
+<div>
+    <canvas id="myCanvas1"/>
+</div>
+
+<script>
+    var imageUrl="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598763561378&di=d3f55c08fd945a65b4b33b803abff4c5&imgtype=0&src=http%3A%2F%2Fp0.ifengimg.com%2Fpmop%2F2017%2F1009%2FEFB94B7174A75661AE3FB564D6D76AA33FD64298_size1694_w600_h5646.jpeg";
+    var imageWater="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598812031483&di=e97db2095c48787a72a0a0223d385bb0&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F66%2F36%2F14300000953850128253365526441.jpg";
+    //加载文字水印
+    $.takeWatermark(
+            "#myCanvas"
+            ,imageUrl
+            ,$.ImageSize.FillScreen
+            ,$.imageMarkOptions(imageWater,null,null,$.MarkPoint.Center,$.MarkDirect.Horizontal,null,1.2)
+            ,$.textMarKOptions("fplei008",$.MarkPoint.Fill,$.MarkDirect.Left_Rote,"rgba(255,255,255,0.7)",1)
+    );
+
+    //加载图片文字水印
+    $.takeWatermark(
+            "#myCanvas1"
+            ,"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598872525248&di=b7e70598f6a66e08a5d10e56b93a8c92&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2Fday_110320%2F11032021067b907d3ed754dd93.jpg"
+            ,$.ImageSize.FillScreen
+            ,null
+            ,$.textMarKOptions("浦发银行001",$.MarkPoint.Fill,$.MarkDirect.Left_Rote,null,1.1)
+    )
+</script>
+</body>
+</html>
